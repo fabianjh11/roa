@@ -47,15 +47,13 @@
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </button>
-                {#if display}
-                    <div class="menu-options">
-                        <h5><a href="#inicio">Inicio</a></h5>
-                        <h5><a href="#nosotros">Nosotros</a></h5>
-                        <h5><a href="#servicios">Servicios</a></h5>
-                        <h5><a href="#contacto">Contacto</a></h5>
-                        <h5><a href="#ubicacion">Ubicación</a></h5>
-                    </div>
-                {/if}
+                <div class={ display? 'menu-show':'menu-hidden'}>
+                    <h5><a href="#inicio">Inicio</a></h5>
+                    <h5><a href="#nosotros">Nosotros</a></h5>
+                    <h5><a href="#servicios">Servicios</a></h5>
+                    <h5><a href="#contacto">Contacto</a></h5>
+                    <h5><a href="#ubicacion">Ubicación</a></h5>
+                </div>
             </div>
 
             <!--Menú general-->
@@ -219,7 +217,7 @@
         left: 0;
         width: 100%;
         padding: 10px;
-        min-height: 5vh;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -230,6 +228,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 100%;
         width: 100%;
     }
 
@@ -245,12 +244,12 @@
         background-color: transparent;
         display: flex;
         flex-direction: column;
-        min-width: 2rem;
-        gap: 0.51rem;
+        width: 32px;
+        gap: 7.8px;
     }
     .b-menu .bar, .b-close .bar {
         background: var(--light);
-        height: 2.5px;
+        height: 3px;
         width: 95%;
         border-radius: 5px;
         transform-origin: left;
@@ -277,27 +276,36 @@
         margin-right: 30px;
     }
 
-    .menu-options {
+    .menu-hidden, .menu-show {
         position: absolute;
-        padding-top: 15px;
         min-width: 19vw;
         box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.3);
         right: -3px;
         opacity: 0.85;
         text-align: center;
+        top: -500px;
+        transition: transform 0.3s ease-out;
+    }
+    .menu-show {
+        transform: translateY(547.5px);
     }
 
-    .menu-options h5 {
+    .menu-show h5 {
         background-color: var(--main2);
     }
-    .menu-options h5 a {
+    .menu-hidden h5 a {
         color: var(--light);
         padding: 12px 16px;
         text-decoration: none;
         display: block;
     }
-
-    .menu-options h5 a:hover {
+    .menu-show h5 a {
+        color: var(--light);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .menu-show h5 a:hover {
         background-color: var(--light);
         color: var(--dark);
         cursor: pointer;
