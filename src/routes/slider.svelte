@@ -11,9 +11,9 @@
     const slideDuration = 5000;
 
     const images = [
-        Foto4,
         Foto2,
         Foto1,
+        Foto4,
         Foto5,
         Foto6
     ];
