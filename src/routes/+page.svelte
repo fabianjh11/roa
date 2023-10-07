@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import Materias from './materias.svelte';
     import Slider from './slider.svelte';
+    import location from '../assets/location.png'
 
     onMount(() => {
         document.body.addEventListener('click', handleBodyClick);
@@ -183,6 +184,25 @@
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
+        </div>
+        <div class="space"></div>
+        <div class="ubicaciones">
+            <h5>También puedes encontrarnos en:</h5>
+            <a class="otra_ubicacion" href="https://www.google.com.mx/maps/place/WeWork/@20.6942008,-103.3777571,17z/data=!3m1!4b1!4m6!3m5!1s0x8428afbbdf2a96e5:0x2923b32173de2145!8m2!3d20.6941958!4d-103.3751822!16s%2Fg%2F11gmcxm5c2?entry=ttu"
+            target="_blank">
+                <img src={location} alt="">
+                <p><b>Corporativo Midtown:</b> Av. Adolfo López Mateos Norte 95, Italia Providencia, 44648, Guadalajara, Jalisco.</p>
+            </a>
+            <a class="otra_ubicacion" href="https://www.google.com.mx/maps/place/WeWork+Espacio+de+Oficinas+%26+Coworking+Punto+Sur/@20.5689219,-103.4520562,17z/data=!3m1!4b1!4m6!3m5!1s0x8428ab38d84aec73:0x7fd054a70a299c6d!8m2!3d20.5689219!4d-103.4520562!16s%2Fg%2F11rpntvfym?entry=ttu"
+            target="_blank">
+                <img src={location} alt="">
+                <p><b>Corporativo Punto Sur:</b> Av. Punto Sur 312, 45640, Tlajomulco de Zúñiga, Jalisco.</p>
+            </a>
+            <a class="otra_ubicacion" href="https://www.google.com.mx/maps/place/@20.6975626,-103.3758593,17z/data=!3m2!4b1!5s0x8428ae36d47aa113:0xd66adbe32d7024b9!4m6!3m5!1s0x8428af9136c323df:0x8a0c8eaae428b2b4!8m2!3d20.6975576!4d-103.3732844!16s%2Fg%2F11h5w5nsxc?entry=ttu"
+            target="_blank">
+                <img src={location} alt="">
+                <p><b>Corporativo de las Américas:</b> Av. de las Américas 1254 - 16th, Country Club, 44610, Guadalajara, Jalisco.</p>
+            </a>
         </div>
     </div>
 
@@ -483,8 +503,37 @@
         font-family: 'Raleway';
     }
     .ubicacion p {
-        font-size: 3vw;
+        font-size: 2vw;
         text-align: center;
+    }
+
+    .ubicaciones {
+        display: flex;
+        flex-direction: column;
+    }
+    .ubicaciones h5 {
+        font-size: 3vw;
+        font-family: 'Raleway', sans-serif;
+        padding: 1vw;
+    }
+    .ubicaciones p {
+        font-size: 2vw;
+        padding: 1vw;
+        text-align: left;
+    }
+    .otra_ubicacion {
+        display: flex;
+        align-items: center; 
+        text-decoration: none;
+        color: var(--dark);
+    }
+    .otra_ubicacion img {
+        width: 30px;
+        height: 30px;
+    }
+    .otra_ubicacion:hover {
+        border-bottom: solid 1px var(--main2);
+        cursor: pointer;
     }
 
     iframe{
