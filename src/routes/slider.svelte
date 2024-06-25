@@ -1,25 +1,32 @@
 <script>
     import { onMount } from 'svelte';
-    import Foto1 from '../assets/foto1.jpg'
-    import Foto2 from '../assets/foto2.jpg'
-    import Foto3 from '../assets/foto3.jpg'
-    import Foto4 from '../assets/foto4.jpg'
-    import Foto5 from '../assets/foto5.jpg'
-    import Foto6 from '../assets/foto6.jpg'
+    import Foto1 from '../assets/foto1.jfif'
+    import Foto2 from '../assets/foto2.jfif'
+    import Foto3 from '../assets/foto3.jfif'
+    import Foto4 from '../assets/foto4.jfif'
+    import Foto5 from '../assets/foto5.jfif'
 
-    let currentSlide = 0;
+    var currentSlide = 0;
     const slideDuration = 5000;
 
     const images = [
-        Foto2,
         Foto1,
+        Foto2,
+        Foto3,
         Foto4,
-        Foto5,
-        Foto6
+        Foto5
     ];
 
     function changeSlide(index) {
         currentSlide = index;
+        for(var i = 0; i < images.length; i++) {
+            if (i == currentSlide) {
+                document.getElementById(i).classList.add('selected');
+            }
+            else {
+                document.getElementById(i).classList.remove('selected');
+            }
+        }
         scrollToSlide(index);
     }
 
@@ -31,7 +38,7 @@
     function autoChangeSlide() {
         const totalSlides = images.length;
         currentSlide = (currentSlide + 1) % totalSlides;
-        scrollToSlide(currentSlide);
+        changeSlide(currentSlide);
     }
 
     onMount(() => {
@@ -46,14 +53,23 @@
     <div class="slider-container">
         <div class="slider-wrapper">
             <div class="slider-images" >
-                {#each images as image}
-                    <img src={image} alt="" />
+                {#each images as image, index}
+                    {#if index == 1 || index == 2}
+                        <img src={image} class="cover" alt="fotografía" />
+                    {:else}
+                        <img src={image} alt="fotografía" />
+                    {/if}
                 {/each}
             </div>
             <div class="slider-nav">
                 {#each images as _, index}
                     <!-- svelte-ignore a11y-invalid-attribute -->
-                    <a href="#" on:click={() => changeSlide(index)}><div></div></a>
+                    {#if index == 0}
+                        <a href="#" class="no-cover selected" id={index} on:click={() => changeSlide(index)}><div></div></a>
+                    {:else}
+                        <a href="#" id={index} on:click={() => changeSlide(index)}><div></div></a>
+                    {/if}
+                    
                 {/each}
             </div>
         </div>
@@ -61,27 +77,40 @@
 </main>
 
 <style>
+    .slider-container {
+        max-height: 100vh;
+        background: radial-gradient(circle, var(--main) 60%, var(--dark) 100%);
+    }
     .slider-wrapper{
         position: relative;
         width: 100%;
         margin: 0 auto;
         overflow: hidden;
+        max-height: 90vh;
     }
 
     .slider-images{
         display: flex;
         aspect-ratio: 16 / 9;
-        overflow-x: auto;
+        overflow-x: hidden;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.5);
-
     }
 
     .slider-images img{
         flex: 1 0 100%;
         scroll-snap-align: start;
-        object-fit: cover;
+        object-fit: contain;
+        overflow: hidden;
+        opacity: .8;
+    }
+
+    .slider-images .cover{
+        flex: 1 0 100%;
+        scroll-snap-align: start;
+        object-fit: fill;
+        overflow: hidden;
         opacity: .8;
     }
 
@@ -99,13 +128,17 @@
         width: 0.5rem;
         height: 0.5rem;
         border-radius: 50%;
-        background-color: #fff;
+        background-color: var(--light);
         opacity: 0.75;
         transition: opacity ease 250ms;
     }
 
     .slider-nav a:hover{
         opacity: 1;
+    }
+    
+    .slider-nav .selected{
+        background-color: var(--main);
     }
 
 </style>

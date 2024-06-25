@@ -69,7 +69,6 @@
     </div>
 
     <div class="space" id="inicio"></div>
-    <div class="space"></div>
     
     <div class="main">
         <div class="titulos">
@@ -209,7 +208,7 @@
     <div class="space"></div>
 
     <footer>
-        <p>©2023 ROA - Corporativo Jurídico</p>
+        <p>© {new Date().getFullYear()} ROA - Corporativo Jurídico</p>
         <br>
         <p>Todos los derechos reservados</p>
     </footer>
@@ -352,12 +351,13 @@
 
     .slider{
         width: 100%;
+        max-height: 90vh;
     }
 
     .titulos{
         position: absolute;
         z-index: 1;
-        font-size: 6vw;
+        font-size: 5vw;
         text-align: center;
         width: 90%;
         font-family: 'Raleway', sans-serif;
@@ -568,7 +568,7 @@
             font-size: 6vw;
         }
         .space {
-            min-height: 3vh;
+            min-height: 4.5vh;
         }
         .space-color {
             min-height: 3vh;
