@@ -2,9 +2,8 @@
     import { onMount } from 'svelte';
     import Foto1 from '../assets/foto1.jfif'
     import Foto2 from '../assets/foto2.jfif'
-    import Foto3 from '../assets/foto3.jfif'
-    import Foto4 from '../assets/foto4.jfif'
-    import Foto5 from '../assets/foto5.jfif'
+    import Foto3 from '../assets/foto4.jfif'
+    import Foto4 from '../assets/foto5.jfif'
 
     var currentSlide = 0;
     const slideDuration = 5000;
@@ -13,8 +12,7 @@
         Foto1,
         Foto2,
         Foto3,
-        Foto4,
-        Foto5
+        Foto4
     ];
 
     function changeSlide(index) {
@@ -54,8 +52,10 @@
         <div class="slider-wrapper">
             <div class="slider-images" >
                 {#each images as image, index}
-                    {#if index == 1 || index == 2}
-                        <img src={image} class="cover" alt="fotografía" />
+                    {#if index == 0}
+                        <img src={image} class="cover-0" alt="fotografía" />
+                    {:else if index == 1}
+                        <img src={image} class="cover-1" alt="fotografía" />
                     {:else}
                         <img src={image} alt="fotografía" />
                     {/if}
@@ -106,7 +106,16 @@
         opacity: .8;
     }
 
-    .slider-images .cover{
+    .slider-images .cover-0{
+        flex: 1 0 100%;
+        scroll-snap-align: start;
+        object-fit: cover;
+        object-position: 100% 30%;
+        overflow: hidden;
+        opacity: .8;
+    }
+
+    .slider-images .cover-1 {
         flex: 1 0 100%;
         scroll-snap-align: start;
         object-fit: fill;
