@@ -6,7 +6,7 @@
         <p>Excelente atención y profesionalismo. Resolvieron mi caso de manera rápida y efectiva.</p>
     </div>
     <div class="garantia">
-        <p>+500 casos resultos con éxito</p>
+        <p>+500 casos resueltos con éxito</p>
     </div>
 </div>
 
