@@ -165,7 +165,7 @@
         justify-content: center;
         align-items: center;
         background-color: var(--dark);
-        padding-top: 2rem;
+        padding: 4rem 0.5rem;
     }
     .mid {
         min-height: 7vh;

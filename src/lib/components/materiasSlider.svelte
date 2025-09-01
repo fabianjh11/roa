@@ -93,7 +93,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        padding: 1rem 0;
+        padding: 1rem 0rem;
         width: 100%;
         overflow: hidden;
         background: var(--dark);
@@ -111,7 +111,6 @@
         justify-content: space-between;
         overflow-x: hidden;
         gap: 8px;
-        min-height: 25vh;
     }
 
     .card {
@@ -121,6 +120,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        gap: 1rem;
         font-size: .7rem;
         color: var(--light);
         text-align: center;
@@ -162,10 +162,6 @@
     }
 
     @media screen and (min-width: 500px) {
-        .slider-materias {
-            min-height: 30vh;
-        }
-
         .card {
             flex: 0 0 30%;
             font-size: .8rem;
@@ -184,11 +180,7 @@
     @media screen and (min-width: 750px) {
         .materias-slider {
             width: 90%;
-            padding: 4rem 0;
-        }
-
-        .slider-materias {
-            min-height: 35vh;
+            padding: 4rem 0rem;
         }
 
         .card {
@@ -217,11 +209,6 @@
             width: 86%;
             padding: 4rem 0;
         }
-
-        .slider-materias {
-            min-height: 22rem;
-        }
-
         .icon {
             padding: 1.2rem;
             border-radius: 90px;
