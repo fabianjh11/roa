@@ -1,13 +1,14 @@
 <script>
     import { onMount } from 'svelte';
-    import Foto1 from '../assets/foto1.jfif'
-    import Foto2 from '../assets/foto2.jfif'
-    import Foto3 from '../assets/foto4.jfif'
-    import Foto4 from '../assets/foto5.jfif'
+    import Foto1 from '../../assets/foto1.jpeg'
+    import Foto2 from '../../assets/foto2.jpeg'
+    import Foto3 from '../../assets/foto3.jpeg'
+    import Foto4 from '../../assets/foto4.jpeg'
 
     var currentSlide = 0;
-    const slideDuration = 5000;
+    const slideDuration = 5500;
 
+    //const images = [Foto1];
     const images = [
         Foto1,
         Foto2,
@@ -17,14 +18,14 @@
 
     function changeSlide(index) {
         currentSlide = index;
-        for(var i = 0; i < images.length; i++) {
-            if (i == currentSlide) {
-                document.getElementById(i).classList.add('selected');
-            }
-            else {
-                document.getElementById(i).classList.remove('selected');
-            }
-        }
+        // for(var i = 0; i < images.length; i++) {
+        //     if (i == currentSlide) {
+        //         document.getElementById(i).classList.add('selected');
+        //     }
+        //     else {
+        //         document.getElementById(i).classList.remove('selected');
+        //     }
+        // }
         scrollToSlide(index);
     }
 
@@ -53,25 +54,27 @@
             <div class="slider-images" >
                 {#each images as image, index}
                     {#if index == 0}
-                        <img src={image} class="cover-0" alt="fotografía" />
-                    {:else if index == 1}
+                        <img src={image} class="cover-0" alt="fotografía de los tres abogados" />
+                    {:else if index == 2 }
                         <img src={image} class="cover-1" alt="fotografía" />
+                    {:else if index == 3 }
+                        <img src={image} class="cover-2" alt="fotografía" />
                     {:else}
                         <img src={image} alt="fotografía" />
                     {/if}
                 {/each}
             </div>
-            <div class="slider-nav">
-                {#each images as _, index}
+            <!-- <div class="slider-nav">
+                {#each images as _, index} -->
                     <!-- svelte-ignore a11y-invalid-attribute -->
-                    {#if index == 0}
+                    <!-- {#if index == 0}
                         <a href="#" class="no-cover selected" id={index} on:click={() => changeSlide(index)}><div></div></a>
                     {:else}
                         <a href="#" id={index} on:click={() => changeSlide(index)}><div></div></a>
                     {/if}
                     
                 {/each}
-            </div>
+            </div> -->
         </div>
     </div>
 </main>
@@ -86,12 +89,12 @@
         width: 100%;
         margin: 0 auto;
         overflow: hidden;
-        max-height: 90vh;
+        max-height: 92vh;
     }
 
     .slider-images{
         display: flex;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 12;
         overflow-x: hidden;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
@@ -101,29 +104,25 @@
     .slider-images img{
         flex: 1 0 100%;
         scroll-snap-align: start;
-        object-fit: contain;
+        object-fit: cover;
+        object-position: 100% 58%;
         overflow: hidden;
-        opacity: .8;
+        opacity: .6;
     }
 
     .slider-images .cover-0{
-        flex: 1 0 100%;
-        scroll-snap-align: start;
-        object-fit: cover;
-        object-position: 100% 30%;
-        overflow: hidden;
-        opacity: .8;
+        object-position: 100% 77%;
     }
 
     .slider-images .cover-1 {
-        flex: 1 0 100%;
-        scroll-snap-align: start;
-        object-fit: fill;
-        overflow: hidden;
-        opacity: .8;
+        object-position: 100% 60%;
     }
 
-    .slider-nav{
+    .slider-images .cover-2 {
+        object-position: 100% 63%;
+    }
+
+    /* .slider-nav{
         display: flex;
         column-gap: 1rem;
         position: absolute;
@@ -148,6 +147,12 @@
     
     .slider-nav .selected{
         background-color: var(--main);
+    } */
+
+    @media screen and (min-width: 750px) {
+        .slider-images {
+            aspect-ratio: 16 / 10;
+        }
     }
 
 </style>
