@@ -14,5 +14,8 @@
 		"svelte": "^4.0.5",
 		"vite": "^4.4.2"
 	},
+	"engines": {
+		"node": "20.x"
+	},
 	"type": "module"
 }
