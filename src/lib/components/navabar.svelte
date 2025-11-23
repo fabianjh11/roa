@@ -6,6 +6,7 @@
         <h4 class="t-navbar"><a href="#inicio">ROA</a></h4>
 
         <div class="contactar">
+            <p class="telefono2">+52 386 103 3922</p>
             <a href="tel:+3331727807">
                 <svg class="telefono-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                     <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -51,6 +52,7 @@
     .contactar {
         padding-right: 8%;
         display: flex;
+        gap: .5rem;
         justify-content: space-around;
         align-items: center;
     }
@@ -66,6 +68,13 @@
     .contactar:hover a {
         color: #c0cdcd;
     }
+    .telefono2 {
+        font-size: .6rem;
+        color: var(--light);
+        padding: 0.1rem .5rem;
+        border: solid 1px var(--light);
+        border-radius: .5rem;
+    }
     .telefono-logo {
         fill: var(--light);
         width: 16px;
@@ -77,9 +86,15 @@
     @media screen and (min-width: 750px) {
         .contactar {
             padding-right: 3%;
+            gap: 2rem;
         }
         .contactar a {
             font-size: 16px;
+        }
+        .telefono2 {
+            font-size: 1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 1rem;
         }
         .telefono-logo {
             width: 22px;
