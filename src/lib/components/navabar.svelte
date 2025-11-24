@@ -80,7 +80,7 @@
         fill: var(--light);
         width: 16px;
     }
-    .contactar .telefono-logo:hover {
+    .contactar a:hover .telefono-logo {
         fill: #c0cdcd;
     }
 
