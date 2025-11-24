@@ -65,12 +65,13 @@
         font-size: 11px;
         gap: 8px;
     }
-    .contactar:hover a {
+    .contactar a:hover {
         color: #c0cdcd;
     }
     .telefono2 {
         font-size: .6rem;
-        color: var(--light);
+        color: var(--light) !important;
+        text-decoration: none !important;
         padding: 0.1rem .5rem;
         border: solid 1px var(--light);
         border-radius: .5rem;
@@ -79,7 +80,7 @@
         fill: var(--light);
         width: 16px;
     }
-    .contactar:hover .telefono-logo {
+    .contactar .telefono-logo:hover {
         fill: #c0cdcd;
     }
 
