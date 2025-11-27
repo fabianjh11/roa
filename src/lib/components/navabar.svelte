@@ -70,8 +70,7 @@
     }
     .telefono2 {
         font-size: .6rem;
-        color: var(--light) !important;
-        text-decoration: none !important;
+        color: var(--light);
         padding: 0.1rem .5rem;
         border: solid 1px var(--light);
         border-radius: .5rem;
